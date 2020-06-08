@@ -28,6 +28,16 @@ const limitRecipeTitle = (title, limit = 17) => {
     return title;
 }
 
+//Method use to highlight the selected recipe
+export const highlightSelected = id => {
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    });
+    document.querySelector(`.results__link[href*="${id}"]`).classList.add('results__link--active');
+};
+
+
 const renderRecipe = recipe => {
     const markup = `<li>
     <a class="results__link" href="#${recipe.recipe_id}">
