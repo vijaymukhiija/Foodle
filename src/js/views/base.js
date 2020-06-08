@@ -4,6 +4,7 @@ export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchResList: document.querySelector('.results__list'),
     searchRes: document.querySelector('.results'),
+    searchResPages: document.querySelector('.results__pages')
 }
 
 export const elementStrings = {
@@ -11,7 +12,7 @@ export const elementStrings = {
 };
 
 //loading spinner for Ajax Request
-export const renderLoader = parent => {
+export const renderLoader = parent => {  //Here parent stands for class with which u've to create this loader
     const loader = `
         <div class="${elementStrings.loader}">
             <svg>
@@ -22,7 +23,8 @@ export const renderLoader = parent => {
     parent.insertAdjacentHTML('afterbegin', loader);
 };
 
-export const clearLoader = () => {
+//For clearing the loader when the results are fetched
+export const clearLoader = () => {           
     const loader = document.querySelector(`.${elementStrings.loader}`);
     if (loader) loader.parentElement.removeChild(loader);
 };

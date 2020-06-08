@@ -36,4 +36,14 @@ const searchController = async () => {
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     searchController();
-})
+});
+
+elements.searchResPages.addEventListener('click', e => {
+    //closet method will help to select only the the selected element even if events happened in near/child elements
+    const btn = e.target.closest('.btn-inline');        
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10);  //Uses data attribute to fetch which we've to go from markup
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
