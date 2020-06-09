@@ -5,7 +5,8 @@ export const elements = {
     searchResList: document.querySelector('.results__list'),
     searchRes: document.querySelector('.results'),
     searchResPages: document.querySelector('.results__pages'),
-    recipe: document.querySelector('.recipe')
+    recipe: document.querySelector('.recipe'),
+    shopping: document.querySelector('.shopping__list')
 }
 
 export const elementStrings = {
@@ -25,7 +26,7 @@ export const renderLoader = parent => {  //Here parent stands for class with whi
 };
 
 //For clearing the loader when the results are fetched
-export const clearLoader = () => {           
+export const clearLoader = () => {
     const loader = document.querySelector(`.${elementStrings.loader}`);
     if (loader) loader.parentElement.removeChild(loader);
 };
